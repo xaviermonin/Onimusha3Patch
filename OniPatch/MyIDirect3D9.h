@@ -100,8 +100,10 @@ public:
 
 			/*pPresentationParameters->BackBufferWidth = 3840;
 			pPresentationParameters->BackBufferHeight = 2160;*/
-			/*pPresentationParameters->BackBufferWidth = 1920;
-			pPresentationParameters->BackBufferHeight = 1080;*/
+
+			// TODO: Read this from configuration
+			pPresentationParameters->BackBufferWidth = 1920;
+			pPresentationParameters->BackBufferHeight = 1080;
 			
 			//pPresentationParameters->Windowed = FALSE;
 		}

@@ -60,15 +60,17 @@ public:
 		if (windowName == "oni3") {
 			TraceMsg("Oni window found");
 
-			const DWORD fullscreenBorderless = WS_POPUP | WS_VISIBLE | WS_SYSMENU;
-			const DWORD resizableWindow = WS_TILEDWINDOW;
+			const DWORD borderLessStyle = WS_POPUP | WS_VISIBLE | WS_SYSMENU;
+			const DWORD resizableStyle = WS_TILEDWINDOW;
 
 			X = CW_USEDEFAULT;
 			Y = CW_USEDEFAULT;
+
+			// TODO: Read from config
 			nWidth = 1920;
 			nHeight = 1080;
 			dwExStyle = WS_EX_APPWINDOW;
-			dwStyle = resizableWindow;
+			dwStyle = resizableStyle;
 		}
 
 		HWND result = TrueCreateWindowExW(dwExStyle, lpClassName, lpWindowName, dwStyle, X, Y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);

@@ -17,6 +17,8 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 	if (ul_reason_for_call == DLL_PROCESS_ATTACH)
 	{
 		DisableThreadLibraryCalls(hModule);
+
+		// TODO: Enable/Disable from config
 		Utils::EnableConsole();
 
 		auto hook = OniHook::GetInstance();
