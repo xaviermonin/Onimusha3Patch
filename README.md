@@ -1,6 +1,7 @@
 # Onimusha3Patch
 
-Patch Onmimusha 3 to allow any screen resolution.
+1. Patch Onmimusha 3 to allow any screen resolution.
+2. Fix the Configure input menu (see Configure input patch directory).
 
 ## How to use
 1. Compile solution
