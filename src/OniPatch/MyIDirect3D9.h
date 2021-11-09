@@ -1,6 +1,8 @@
 #pragma once
+
 #include <d3d9helper.h>
 #include "Trace.h"
+#include "MyIDirect3DDevice9.h"
 
 class MyIDirect3D9 : public IDirect3D9
 {
@@ -108,7 +110,13 @@ public:
 			//pPresentationParameters->Windowed = FALSE;
 		}
 
-		return this->original->CreateDevice(Adapter, DeviceType, hFocusWindow, BehaviorFlags, pPresentationParameters, ppReturnedDeviceInterface);
+		IDirect3DDevice9* trueDevice = nullptr;
+
+		HRESULT hResult = this->original->CreateDevice(Adapter, DeviceType, hFocusWindow, BehaviorFlags, pPresentationParameters, &trueDevice);
+
+		(*ppReturnedDeviceInterface) = new MyIDirect3DDevice9(trueDevice);
+
+		return hResult;
 	}
 
 	/*** Helper information ***/

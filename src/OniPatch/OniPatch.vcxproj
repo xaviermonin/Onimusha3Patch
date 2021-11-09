@@ -153,6 +153,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
+    <ClInclude Include="MyIDirect3DDevice9.h" />
     <ClInclude Include="OniHook.h" />
     <ClInclude Include="MyIDirect3D9.h" />
     <ClInclude Include="Trace.h" />
