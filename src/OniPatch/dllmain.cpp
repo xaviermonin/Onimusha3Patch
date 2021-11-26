@@ -1,30 +1,23 @@
 // dllmain.cpp : Définit le point d'entrée de l'application DLL.
 #include "pch.h"
-
-#include <iostream>
-#include <detours.h>
-#include "Trace.h"
-#include "Utils.h"
-#include <d3d9helper.h>
-#include "MyIDirect3D9.h"
-#include "OniHook.h"
+#include "dllmain.h"
 
 BOOL APIENTRY DllMain(HMODULE hModule,
-	DWORD  ul_reason_for_call,
-	LPVOID lpReserved
+    DWORD  ul_reason_for_call,
+    LPVOID lpReserved
 )
 {
-	if (ul_reason_for_call == DLL_PROCESS_ATTACH)
-	{
-		DisableThreadLibraryCalls(hModule);
+    if (ul_reason_for_call == DLL_PROCESS_ATTACH)
+    {
+        DisableThreadLibraryCalls(hModule);
 
-		// TODO: Enable/Disable from config
-		Utils::EnableConsole();
+        // TODO: Enable/Disable from config
+        ENABLECONSOLE();
 
-		auto hook = OniHook::GetInstance();
-		hook->Hook();
-	}
+        auto hook = OniHook::GetInstance();
+        hook->Hook();
+    }
 
-	return TRUE;
+    return TRUE;
 }
 
